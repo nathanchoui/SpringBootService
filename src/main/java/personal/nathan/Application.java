@@ -2,7 +2,9 @@ package personal.nathan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import personal.nathan.sercurity.JwtAuthenticationFilter;
 
 /**
  * Description:
@@ -14,6 +16,19 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    /**
+     * 验证Token的Fliter
+     *
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean jwtFilter() {
+        final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        JwtAuthenticationFilter filter = new JwtAuthenticationFilter();
+        registrationBean.setFilter(filter);
+        return registrationBean;
     }
 
 }
