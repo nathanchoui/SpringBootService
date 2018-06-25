@@ -1,0 +1,52 @@
+-- 用户表
+create table user (
+	id int(11) primary key auto_increment,
+    username varchar(32) unique,-- 登录用户名，唯一
+    password varchar(32) not null,
+    user_type varchar(20) not null,
+    status tinyint(1),
+    create_time timestamp,
+    update_time timestamp
+);
+
+-- 角色表
+create table role (
+	id int(11) primary key auto_increment,
+    role_name varchar(50) not null,
+    status tinyint(1),
+    create_time timestamp,
+    update_time timestamp
+);
+
+-- 用户角色对应表
+create table user_role (
+	id int(11) primary key auto_increment,
+    user_id int(11) not null,
+    role_id int(11) not null,
+    status tinyint(1),
+    create_time timestamp,
+    update_time timestamp
+);
+
+-- 权限表
+create table permission
+(
+	id int(11) primary key auto_increment,
+    permission_name varchar(32),
+    permission_type varchar(20),
+    permission_value varchar(200),
+    status tinyint(1),
+    create_time timestamp,
+    update_time timestamp
+);
+
+--
+create table role_permission
+(
+	id int(11) primary key auto_increment,
+    role_id int(11),
+    permission_id int(11),
+    status tinyint(1),
+    create_time timestamp,
+    update_time timestamp
+);

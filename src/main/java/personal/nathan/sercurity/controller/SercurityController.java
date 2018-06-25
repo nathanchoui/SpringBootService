@@ -30,6 +30,4 @@ public class SercurityController {
         token.setToken(tokenStr);
         return token;
     }
-
-
 }

@@ -1,5 +1,6 @@
 package personal.nathan;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -12,6 +13,7 @@ import personal.nathan.sercurity.JwtAuthenticationFilter;
  * Created by zhangwei on 2018/6/19.
  */
 @SpringBootApplication
+@MapperScan()
 public class Application {
 
     public static void main(String[] args) {
